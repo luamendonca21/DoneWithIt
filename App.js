@@ -17,7 +17,17 @@ export default function App() {
           backgroundColor: "dodgerblue",
           width: 100,
           height: 100,
-          elevation: 20,
+          padding: 20,
+        }}
+      >
+        <View style={{ backgroundColor: "gold", width: 50, height: 50 }}></View>
+      </View>
+      <View
+        style={{
+          backgroundColor: "tomato",
+          width: 100,
+          height: 100,
+          margin: 20,
         }}
       ></View>
     </View>
