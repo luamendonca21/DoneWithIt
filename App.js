@@ -2,6 +2,9 @@ import React from "react";
 import { View, Text } from "react-native";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
+
+import AppText from "./app/components/AppText";
+
 import colors from "./app/config/colors";
 
 export default function App() {
@@ -13,21 +16,7 @@ export default function App() {
         alignItems: "center",
       }}
     >
-      <Text
-        style={{
-          fontFamily: "Roboto",
-          fontSize: 30,
-          fontStyle: "italic",
-          fontWeight: "bold",
-          color: "tomato",
-          textTransform: "capitalize",
-          textAlign: "center",
-          lineHeight: 30,
-        }}
-      >
-        I love React Native! This is my first React Native app! Here's some more
-        text
-      </Text>
+      <AppText>I love React Native!</AppText>
     </View>
   );
 }
