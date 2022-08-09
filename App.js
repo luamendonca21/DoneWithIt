@@ -15,8 +15,10 @@ export default function App() {
       <View
         style={{
           backgroundColor: "dodgerblue",
-          flexShrink: 1, //the same as flex: -1s
-          width: 300,
+          position: "absolute",
+          width: 100,
+          top: 20,
+          left: 20,
           height: 100,
         }}
       />
