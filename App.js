@@ -10,18 +10,18 @@ export default function App() {
         justifyContent: "center", //main axis - horizontal axis
         alignItems: "center", // cross axis - vertical axis
         alignContent: "center",
-        flexWrap: "wrap",
       }}
     >
       <View
-        style={{ backgroundColor: "dodgerblue", width: 100, height: 100 }}
+        style={{
+          backgroundColor: "dodgerblue",
+          flexShrink: 1, //the same as flex: -1s
+          width: 300,
+          height: 100,
+        }}
       />
       <View style={{ backgroundColor: "gold", width: 100, height: 100 }} />
       <View style={{ backgroundColor: "tomato", width: 100, height: 100 }} />
-      <View style={{ backgroundColor: "grey", width: 100, height: 100 }} />
-      <View
-        style={{ backgroundColor: "greenyellow", width: 100, height: 100 }}
-      />
     </View>
   );
 }
