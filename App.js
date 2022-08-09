@@ -1,4 +1,5 @@
 import {
+  Dimensions,
   StyleSheet,
   Text,
   View,
@@ -12,19 +13,12 @@ import {
 } from "react-native";
 
 export default function App() {
+  console.log(Dimensions.get("screen"));
   return (
     <SafeAreaView style={styles.container}>
-      <Text>Hello React Native</Text>
-      <Button
-        color="orange"
-        title="Click me"
-        onPress={() =>
-          Alert.alert("My title", "My message", [
-            { text: "Yes", onPress: () => console.log("yes") },
-            { text: "No", onPress: () => console.log("No") },
-          ])
-        }
-      ></Button>
+      <View
+        style={{ backgroundColor: "dodgerblue", width: "50%", height: "50%" }}
+      ></View>
     </SafeAreaView>
   );
 }
