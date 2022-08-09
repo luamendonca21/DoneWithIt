@@ -5,9 +5,10 @@ import {
   View,
   TouchableNativeFeedback,
   Image,
-  Alert,
   SafeAreaView,
+  Alert,
   Button,
+  Platform,
 } from "react-native";
 
 export default function App() {
@@ -32,7 +33,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    paddingTop: Platform.OS === "android" ? 20 : 0,
   },
 });
