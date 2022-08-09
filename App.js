@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text } from "react-native";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
+import { MaterialIcons } from "@expo/vector-icons";
 
 import AppText from "./app/components/AppText";
 
@@ -17,6 +18,8 @@ export default function App() {
       }}
     >
       <AppText>I love React Native!</AppText>
+
+      <MaterialIcons name="email" size={150} color={colors.primary} />
     </View>
   );
 }
