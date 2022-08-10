@@ -7,7 +7,8 @@ import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
 import { View } from "react-native";
 
 import { StyleSheet } from "react-native";
+import MessagesScreen from "./app/screens/MessagesScreen";
 
 export default function App() {
-  return <ViewImageScreen />;
+  return <MessagesScreen />;
 }
