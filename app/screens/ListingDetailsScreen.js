@@ -4,6 +4,7 @@ import { View, StyleSheet, Image } from "react-native";
 import AppText from "../components/AppText";
 
 import colors from "../config/colors";
+import ListItem from "./../components/ListItem";
 
 const ListingDetailsScreen = () => {
   return (
@@ -12,6 +13,13 @@ const ListingDetailsScreen = () => {
       <View style={styles.detailsContainer}>
         <AppText style={styles.title}> Red jacket for sale</AppText>
         <AppText style={styles.price}> 100€</AppText>
+        <View style={styles.container}>
+          <ListItem
+            title="Luana Mendonça"
+            subTitle="5 Listings"
+            image={require("../assets/luana.jpg")}
+          />
+        </View>
       </View>
     </View>
   );
@@ -20,6 +28,9 @@ const ListingDetailsScreen = () => {
 export default ListingDetailsScreen;
 
 const styles = StyleSheet.create({
+  container: {
+    marginVertical: 35,
+  },
   listingContainer: {
     justifyContent: "center",
   },
