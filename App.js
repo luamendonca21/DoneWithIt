@@ -1,5 +1,7 @@
 import React from "react";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
+import ViewImageScreen from "./app/screens/ViewImageScreen";
+
 import Card from "./app/components/Card";
 import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
 import { View } from "react-native";
@@ -7,5 +9,5 @@ import { View } from "react-native";
 import { StyleSheet } from "react-native";
 
 export default function App() {
-  return <ListingDetailsScreen />;
+  return <ViewImageScreen />;
 }
