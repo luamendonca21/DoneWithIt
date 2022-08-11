@@ -1,16 +1,49 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, FlatList } from "react-native";
 import AppText from "./../components/AppText";
 import Screen from "../components/Screen";
 import ListItem from "../components/ListItem";
 import Icon from "../components/Icon";
 import colors from "../config/colors";
+import ListItemSeparator from "./../components/ListItemSeparator";
 
 const AccountScreen = () => {
-  const settings = [
-    { id: 1, name: "My Listings" },
-    { id: 2, name: "My Messages" },
+  const menuItems = [
+    {
+      title: "My Listings",
+      icon: {
+        name: "format-list-bulleted",
+        iconColor: colors.white,
+        size: 35,
+        backgroundColor: colors.primary,
+      },
+    },
+    {
+      title: "My Messages",
+      icon: {
+        name: "email",
+        iconColor: colors.white,
+        size: 35,
+        backgroundColor: colors.secondary,
+      },
+    },
   ];
+
+  const renderItem = ({ item }) => {
+    return (
+      <ListItem
+        title={item.title}
+        IconComponent={
+          <Icon
+            name={item.icon.name}
+            iconColor={item.icon.iconColor}
+            size={item.icon.size}
+            backgroundColor={item.icon.backgroundColor}
+          />
+        }
+      />
+    );
+  };
   return (
     <Screen style={styles.screen}>
       <View style={styles.userContainer}>
@@ -21,47 +54,24 @@ const AccountScreen = () => {
         />
       </View>
       <View style={styles.myListingsContainer}>
-        <ListItem
-          title="My Listings"
-          size={40}
-          ImageComponent={
-            <Icon
-              name="format-list-bulleted"
-              iconColor={colors.white}
-              size={40}
-              backgroundColor={colors.primary}
-            />
-          }
+        <FlatList
+          data={menuItems}
+          keyExtractor={(menuItem) => menuItem.title}
+          renderItem={renderItem}
+          ItemSeparatorComponent={ListItemSeparator}
         />
       </View>
-      <View style={styles.myListingsContainer}>
-        <ListItem
-          title="My Messages"
-          size={40}
-          ImageComponent={
-            <Icon
-              name="message"
-              iconColor={colors.white}
-              size={40}
-              backgroundColor="dodgerblue"
-            />
-          }
-        />
-      </View>
-      <View style={styles.myListingsContainer}>
-        <ListItem
-          title="Log Out"
-          size={40}
-          ImageComponent={
-            <Icon
-              name="logout"
-              iconColor={colors.white}
-              size={40}
-              backgroundColor="yellow"
-            />
-          }
-        />
-      </View>
+      <ListItem
+        title="Log Out"
+        IconComponent={
+          <Icon
+            name="logout"
+            iconColor={colors.white}
+            size={35}
+            backgroundColor="#ffe66d"
+          />
+        }
+      />
     </Screen>
   );
 };
@@ -73,11 +83,11 @@ const styles = StyleSheet.create({
     backgroundColor: colors.light,
   },
   userContainer: {
-    marginVertical: 20,
+    marginTop: 10,
     backgroundColor: colors.white,
   },
   myListingsContainer: {
-    marginTop: 10,
+    marginVertical: 20,
     backgroundColor: colors.white,
   },
 });
