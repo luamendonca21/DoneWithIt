@@ -1,7 +1,6 @@
 import React from "react";
 import { View, Image, StyleSheet } from "react-native";
 import AppText from "./AppText";
-
 import colors from "../config/colors";
 
 const ListItem = ({ title, subTitle, image }) => {
@@ -33,6 +32,6 @@ const styles = StyleSheet.create({
     fontWeight: "500",
   },
   subTitle: {
-    color: colors.grey,
+    color: colors.medium,
   },
 });
