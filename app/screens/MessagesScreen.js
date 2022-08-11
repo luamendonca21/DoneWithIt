@@ -2,8 +2,11 @@ import React from "react";
 import { FlatList, StyleSheet, View } from "react-native";
 import ListItem from "../components/ListItem";
 import ListItemSeparator from "../components/ListItemSeparator";
-
+import ListItemDeleteAction from "../components/ListItemDeleteAction";
 import Screen from "../components/Screen";
+import colors from "../config/colors";
+import AppText from "./../components/AppText";
+
 const messages = [
   {
     id: 1,
@@ -28,10 +31,12 @@ const MessagesScreen = () => {
           subTitle={item.description}
           image={item.image}
           onPress={() => console.log("Message selected!", item)}
+          renderRightActions={ListItemDeleteAction}
         />
       </View>
     );
   };
+
   return (
     <Screen>
       <FlatList
