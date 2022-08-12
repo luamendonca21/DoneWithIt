@@ -3,7 +3,7 @@ import React from "react";
 import { View, StyleSheet, Image } from "react-native";
 import AppText from "../components/AppText";
 
-import colors from "../config/colors";
+import defaultStyles from "../config/styles";
 import ListItem from "./../components/ListItem";
 
 const ListingDetailsScreen = () => {
@@ -42,12 +42,11 @@ const styles = StyleSheet.create({
     padding: 15,
   },
   title: {
-    color: colors.black,
     fontSize: 24,
     fontWeight: "500",
   },
   price: {
-    color: colors.secondary,
+    color: defaultStyles.colors.secondary,
     marginTop: 5,
   },
 });

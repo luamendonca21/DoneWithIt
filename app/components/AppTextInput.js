@@ -2,15 +2,22 @@ import React from "react";
 import { View, StyleSheet, TextInput } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-import colors from "../config/colors";
-
+import defaultStyles from "../config/styles";
 const AppTextInput = ({ icon, iconSize, ...props }) => {
   return (
     <View style={styles.container}>
       {icon && (
-        <MaterialCommunityIcons name={icon} size={iconSize} {...props} />
+        <MaterialCommunityIcons
+          name={icon}
+          size={30}
+          color={defaultStyles.colors.medium}
+          {...props}
+        />
       )}
-      <TextInput style={styles.textInput} {...props}></TextInput>
+      <TextInput
+        style={[styles.textInput, defaultStyles.text]}
+        {...props}
+      ></TextInput>
     </View>
   );
 };
@@ -24,16 +31,13 @@ const styles = StyleSheet.create({
     width: "90%",
     borderRadius: 25,
     borderWidth: 1,
-    borderColor: "dodgerblue",
-    backgroundColor: "white",
+    borderColor: defaultStyles.colors.secondary,
+    backgroundColor: defaultStyles.colors.white,
     elevation: 5,
     padding: 10,
-    shadowColor: "#00406a",
+    shadowColor: defaultStyles.colors.secondary,
   },
   textInput: {
-    fontSize: 16,
-    fontFamily: Platform.OS === "android" ? "Roboto" : "Avenir",
-    color: colors.black,
     marginLeft: 8,
   },
 });

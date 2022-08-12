@@ -1,11 +1,12 @@
 import React from "react";
 import { View, StyleSheet, FlatList } from "react-native";
-import AppText from "./../components/AppText";
 import Screen from "../components/Screen";
 import ListItem from "../components/ListItem";
 import Icon from "../components/Icon";
-import colors from "../config/colors";
 import ListItemSeparator from "./../components/ListItemSeparator";
+import AppText from "./../components/AppText";
+
+import defaultStyles from "../config/styles";
 
 const AccountScreen = () => {
   const menuItems = [
@@ -13,18 +14,18 @@ const AccountScreen = () => {
       title: "My Listings",
       icon: {
         name: "format-list-bulleted",
-        iconColor: colors.white,
+        iconColor: defaultStyles.colors.white,
         size: 35,
-        backgroundColor: colors.primary,
+        backgroundColor: defaultStyles.colors.primary,
       },
     },
     {
       title: "My Messages",
       icon: {
         name: "email",
-        iconColor: colors.white,
+        iconColor: defaultStyles.colors.white,
         size: 35,
-        backgroundColor: colors.secondary,
+        backgroundColor: defaultStyles.colors.secondary,
       },
     },
   ];
@@ -66,7 +67,7 @@ const AccountScreen = () => {
         IconComponent={
           <Icon
             name="logout"
-            iconColor={colors.white}
+            iconColor={defaultStyles.colors.white}
             size={35}
             backgroundColor="#ffe66d"
           />
@@ -80,14 +81,14 @@ export default AccountScreen;
 
 const styles = StyleSheet.create({
   screen: {
-    backgroundColor: colors.light,
+    backgroundColor: defaultStyles.colors.light,
   },
   userContainer: {
     marginTop: 10,
-    backgroundColor: colors.white,
+    backgroundColor: defaultStyles.colors.white,
   },
   myListingsContainer: {
     marginVertical: 20,
-    backgroundColor: colors.white,
+    backgroundColor: defaultStyles.colors.white,
   },
 });

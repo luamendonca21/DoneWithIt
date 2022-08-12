@@ -16,12 +16,7 @@ import AppTextInput from "./app/components/AppTextInput";
 export default function App() {
   return (
     <Screen>
-      <AppTextInput
-        iconSize={30}
-        color="dodgerblue"
-        placeholder="FirstName"
-        icon="email"
-      />
+      <AppTextInput placeholder="FirstName" icon="email" />
     </Screen>
   );
 }

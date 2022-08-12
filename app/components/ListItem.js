@@ -4,7 +4,6 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import Swipeable from "react-native-gesture-handler/Swipeable";
 
 import AppText from "./AppText";
-import Icon from "./Icon";
 import colors from "../config/colors";
 
 const ListItem = ({
@@ -23,7 +22,7 @@ const ListItem = ({
             {IconComponent}
             {image && <Image style={styles.image} source={image}></Image>}
             <View style={styles.detailsContainer}>
-              <AppText style={styles.title}>{title}</AppText>
+              <AppText>{title}</AppText>
               {subTitle && (
                 <AppText style={styles.subTitle}>{subTitle}</AppText>
               )}
@@ -47,10 +46,6 @@ const styles = StyleSheet.create({
     width: 70,
     height: 70,
     borderRadius: 35,
-  },
-  title: {
-    color: colors.black,
-    fontWeight: "500",
   },
   subTitle: {
     color: colors.medium,
