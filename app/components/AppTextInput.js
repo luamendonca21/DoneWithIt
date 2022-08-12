@@ -27,6 +27,7 @@ export default AppTextInput;
 const styles = StyleSheet.create({
   container: {
     alignSelf: "center",
+    alignItems: "center",
     flexDirection: "row",
     width: "90%",
     borderRadius: 25,

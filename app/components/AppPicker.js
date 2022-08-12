@@ -72,6 +72,7 @@ const styles = StyleSheet.create({
   container: {
     alignSelf: "center",
     flexDirection: "row",
+    alignItems: "center",
     width: "90%",
     borderRadius: 25,
     borderWidth: 1,
