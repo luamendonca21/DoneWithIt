@@ -8,14 +8,9 @@ const AppTextInput = ({ icon, iconSize, ...props }) => {
   return (
     <View style={styles.container}>
       {icon && (
-        <MaterialCommunityIcons
-          style={styles.icon}
-          name={icon}
-          size={iconSize}
-          {...props}
-        />
+        <MaterialCommunityIcons name={icon} size={iconSize} {...props} />
       )}
-      <TextInput style={styles.input} {...props}></TextInput>
+      <TextInput style={styles.textInput} {...props}></TextInput>
     </View>
   );
 };
@@ -26,23 +21,20 @@ const styles = StyleSheet.create({
   container: {
     alignSelf: "center",
     flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
     width: "90%",
     borderRadius: 25,
-    height: 45,
     borderWidth: 1,
     borderColor: "dodgerblue",
     backgroundColor: "white",
     elevation: 5,
+    padding: 10,
     shadowColor: "#00406a",
+    marginVertical: 10,
   },
-  input: {
-    width: "90%",
-    height: 40,
+  textInput: {
     fontSize: 16,
     fontFamily: Platform.OS === "android" ? "Roboto" : "Avenir",
     color: colors.black,
+    marginLeft: 8,
   },
-  icon: { marginLeft: 30, paddingRight: 5 },
 });
