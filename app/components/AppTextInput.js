@@ -40,6 +40,7 @@ const styles = StyleSheet.create({
     shadowColor: defaultStyles.colors.secondary,
   },
   textInput: {
+    width: "80%",
     marginLeft: 8,
   },
 });
