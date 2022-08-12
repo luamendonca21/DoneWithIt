@@ -80,6 +80,7 @@ const styles = StyleSheet.create({
     backgroundColor: defaultStyles.colors.white,
     elevation: 5,
     padding: 10,
+    marginVertical: 10,
     shadowColor: defaultStyles.colors.secondary,
   },
   textInput: {
