@@ -11,17 +11,31 @@ import MessagesScreen from "./app/screens/MessagesScreen";
 
 import Screen from "./app/components/Screen";
 import AppText from "./app/components/AppText";
+import AppPicker from "./app/components/AppPicker";
+import AppTextInput from "./app/components/AppTextInput";
 
+const categories = [
+  { label: " Furniture", value: 1 },
+  { label: "Clothing", value: 2 },
+  { label: "Cameras", value: 3 },
+];
 export default function App() {
-  const [isNew, setIsNew] = useState(false);
+  const [category, setCategory] = useState();
   return (
     <Screen>
-      <Switch
-        thumbColor={isNew ? "#fc5c65" : "#6e6969"}
-        trackColor={{ false: "#6e6969", true: "#fc5c65" }}
-        value={isNew}
-        onValueChange={(newValue) => setIsNew(newValue)}
-      />
+      <View style={{ marginTop: 10 }}>
+        <AppPicker
+          selectedItem={category}
+          onSelectItem={(item) => setCategory(item)}
+          items={categories}
+          icon="apps"
+          placeholder="Category"
+        ></AppPicker>
+        <AppTextInput
+          icon="email"
+          placeholder="Enter your nanme"
+        ></AppTextInput>
+      </View>
     </Screen>
   );
 }

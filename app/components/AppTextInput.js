@@ -3,7 +3,7 @@ import { View, StyleSheet, TextInput } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import defaultStyles from "../config/styles";
-const AppTextInput = ({ icon, iconSize, ...props }) => {
+const AppTextInput = ({ icon, ...props }) => {
   return (
     <View style={styles.container}>
       {icon && (
