@@ -29,7 +29,6 @@ const styles = StyleSheet.create({
     elevation: 5,
     padding: 10,
     shadowColor: "#00406a",
-    marginVertical: 10,
   },
   textInput: {
     fontSize: 16,
