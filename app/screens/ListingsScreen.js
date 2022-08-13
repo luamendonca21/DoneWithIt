@@ -2,7 +2,7 @@ import React from "react";
 import { View, StyleSheet, FlatList } from "react-native";
 import Screen from "../components/Screen";
 import Card from "../components/Card";
-import colors from "../config/colors";
+import defaultStyles from "../config/styles";
 const ListingsScreen = () => {
   const listings = [
     {
@@ -45,7 +45,7 @@ export default ListingsScreen;
 
 const styles = StyleSheet.create({
   screen: {
-    backgroundColor: colors.light,
+    backgroundColor: defaultStyles.colors.light,
   },
   container: {
     padding: 20,

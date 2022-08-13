@@ -37,7 +37,7 @@ export default function App() {
           placeholder="Enter your nanme"
         ></AppTextInput>
       </View> */}
-      <LoginScreen />
+      <MessagesScreen />
     </Screen>
   );
 }

@@ -4,7 +4,6 @@ import Screen from "../components/Screen";
 import ListItem from "../components/ListItem";
 import Icon from "../components/Icon";
 import ListItemSeparator from "./../components/ListItemSeparator";
-import AppText from "./../components/AppText";
 
 import defaultStyles from "../config/styles";
 
