@@ -35,7 +35,7 @@ const LoginScreen = () => {
               placeholder="Email"
               keyboardType="email-address"
             />
-            {touched.email && <ErrorMessage error={errors.email} />}
+            <ErrorMessage error={errors.email} visible={touched.email} />
             <AppTextInput
               onBlur={() => setFieldTouched("password")}
               onChangeText={handleChange("password")}
@@ -43,7 +43,7 @@ const LoginScreen = () => {
               secureTextEntry={true}
               placeholder="Password"
             />
-            {touched.password && <ErrorMessage error={errors.password} />}
+            <ErrorMessage error={errors.password} visible={touched.password} />
 
             <AppButton title="Login" onPress={handleSubmit} />
           </>
