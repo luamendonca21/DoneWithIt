@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     flexDirection: "row",
     alignItems: "center",
-    width: "90%",
+    width: "100%",
     borderRadius: 25,
     borderWidth: 1,
     borderColor: defaultStyles.colors.secondary,
