@@ -26,7 +26,12 @@ const ListingEditScreen = () => {
   return (
     <Screen style={styles.container}>
       <AppForm
-        initialValues={{ title: "", price: "", category: "", description: "" }}
+        initialValues={{
+          title: "",
+          price: "",
+          category: null,
+          description: "",
+        }}
         validationSchema={validateYupSchema}
         onSubmit={(values) => console.log(values)}
       >
