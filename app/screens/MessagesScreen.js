@@ -33,6 +33,7 @@ const MessagesScreen = () => {
     return (
       <View style={styles.listItemContainer}>
         <ListItem
+          showChevrons={true}
           title={item.title}
           subTitle={item.description}
           image={item.image}
