@@ -27,9 +27,7 @@ const AppPicker = ({
   const renderItem = ({ item }) => {
     return (
       <PickerItemComponent
-        icon={item.icon.name}
-        color={item.icon.color}
-        backgroundColor={item.icon.backgroundColor}
+        item={item}
         label={item.label}
         onPress={() => {
           setModalVisible(false);

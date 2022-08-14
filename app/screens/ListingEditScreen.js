@@ -88,6 +88,15 @@ const categories = [
       backgroundColor: "#9e4bec",
     },
   },
+  {
+    label: "Books",
+    value: 8,
+    icon: {
+      name: "bookshelf",
+      iconColor: defaultStyles.colors.white,
+      backgroundColor: "#9e4bec",
+    },
+  },
 ];
 
 const ListingEditScreen = () => {
