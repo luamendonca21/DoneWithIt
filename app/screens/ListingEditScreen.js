@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import Screen from "../components/Screen";
 import { StyleSheet } from "react-native";
 import { AppFormField, SubmitButton, AppForm } from "../components/Forms";
@@ -20,7 +19,6 @@ const categories = [
 ];
 
 const ListingEditScreen = () => {
-  const [category, setCategory] = useState();
   return (
     <Screen style={styles.container}>
       <AppForm
