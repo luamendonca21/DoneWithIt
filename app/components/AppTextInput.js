@@ -33,15 +33,15 @@ const styles = StyleSheet.create({
     width: "100%",
     borderRadius: 25,
     borderWidth: 1,
-    borderColor: defaultStyles.colors.secondary,
+    borderColor: defaultStyles.colors.primary,
     backgroundColor: defaultStyles.colors.white,
     elevation: 5,
     padding: 10,
     marginVertical: 10,
-    shadowColor: defaultStyles.colors.secondary,
+    shadowColor: defaultStyles.colors.primary,
   },
   textInput: {
-    width: "90%",
+    flex: 1,
     marginLeft: 8,
   },
 });
