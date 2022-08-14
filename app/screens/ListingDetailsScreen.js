@@ -4,7 +4,7 @@ import { View, StyleSheet, Image } from "react-native";
 import AppText from "../components/AppText";
 
 import defaultStyles from "../config/styles";
-import ListItem from "../components/Lists/ListItem";
+import { ListItem } from "../components/Lists";
 
 const ListingDetailsScreen = () => {
   return (
