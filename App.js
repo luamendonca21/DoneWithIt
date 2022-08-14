@@ -8,11 +8,8 @@ import ListingsScreen from "./app/screens/ListingsScreen";
 import MessagesScreen from "./app/screens/MessagesScreen";
 import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
 import AccountScreen from "./app/screens/AccountScreen";
+import WelcomeScreen from "./app/screens/WelcomeScreen";
 
 export default function App() {
-  return (
-    <Screen>
-      <ListingsScreen />
-    </Screen>
-  );
+  return <ListingsScreen />;
 }
