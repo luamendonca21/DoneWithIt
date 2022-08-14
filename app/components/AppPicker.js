@@ -19,9 +19,25 @@ const AppPicker = ({
   items,
   onSelectItem,
   selectedItem,
+  PickerItemComponent = PickerItem,
+  numberOfColumns,
   placeholder,
 }) => {
   const [modalVisible, setModalVisible] = useState(false);
+  const renderItem = ({ item }) => {
+    return (
+      <PickerItemComponent
+        icon={item.icon.name}
+        color={item.icon.color}
+        backgroundColor={item.icon.backgroundColor}
+        label={item.label}
+        onPress={() => {
+          setModalVisible(false);
+          onSelectItem(item);
+        }}
+      />
+    );
+  };
   return (
     <>
       <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
@@ -54,19 +70,14 @@ const AppPicker = ({
             title="Close"
             onPress={() => setModalVisible(false)}
           />
-          <FlatList
-            data={items}
-            keyExtractor={(item) => item.value.toString()}
-            renderItem={({ item }) => (
-              <PickerItem
-                label={item.label}
-                onPress={() => {
-                  setModalVisible(false);
-                  onSelectItem(item);
-                }}
-              />
-            )}
-          />
+          <View style={styles.containerFlatList}>
+            <FlatList
+              numColumns={numberOfColumns}
+              data={items}
+              keyExtractor={(item) => item.value.toString()}
+              renderItem={renderItem}
+            />
+          </View>
         </Screen>
       </Modal>
     </>
@@ -98,5 +109,8 @@ const styles = StyleSheet.create({
     flex: 1,
     marginLeft: 8,
     color: defaultStyles.colors.medium,
+  },
+  containerFlatList: {
+    alignItems: "center",
   },
 });

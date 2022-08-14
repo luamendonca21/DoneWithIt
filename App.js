@@ -11,5 +11,5 @@ import AccountScreen from "./app/screens/AccountScreen";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
 
 export default function App() {
-  return <ListingsScreen />;
+  return <ListingEditScreen />;
 }
