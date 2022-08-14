@@ -10,7 +10,7 @@ import {
 import * as Yup from "yup";
 
 const validateYupSchema = Yup.object().shape({
-  title: Yup.string().required().label("Title"),
+  title: Yup.string().required().min(1).label("Title"),
   category: Yup.object().required().nullable().label("Category"),
   price: Yup.number().required().min(1).max(100000).label("Price"),
   description: Yup.string().required().label("Description"),

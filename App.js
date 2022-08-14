@@ -12,7 +12,7 @@ import AccountScreen from "./app/screens/AccountScreen";
 export default function App() {
   return (
     <Screen>
-      <AccountScreen />
+      <ListingEditScreen />
     </Screen>
   );
 }
