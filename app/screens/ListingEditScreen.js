@@ -35,14 +35,25 @@ const ListingEditScreen = () => {
         validationSchema={validateYupSchema}
         onSubmit={(values) => console.log(values)}
       >
-        <AppFormField name="title" placeholder="Title" />
-        <AppFormField name="price" placeholder="Price" />
+        <AppFormField maxLength={255} name="title" placeholder="Title" />
+        <AppFormField
+          maxLength={8}
+          keyboardType="numeric"
+          name="price"
+          placeholder="Price"
+        />
         <AppFormPicker
           items={categories}
           name="category"
           placeholder="Category"
         />
-        <AppFormField name="description" placeholder="Description" />
+        <AppFormField
+          maxLength={255}
+          multiline
+          numberOfLines={3}
+          name="description"
+          placeholder="Description"
+        />
         <SubmitButton title="post" />
       </AppForm>
     </Screen>
