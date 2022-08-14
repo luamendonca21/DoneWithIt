@@ -1,10 +1,11 @@
 import React from "react";
 import { View, Image, StyleSheet, TouchableHighlight } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-import Swipeable from "react-native-gesture-handler/Swipeable";
 
 import AppText from "../AppText";
 import defaultStyles from "../../config/styles";
+
+import Swipeable from "react-native-gesture-handler/Swipeable";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const ListItem = ({
@@ -27,9 +28,13 @@ const ListItem = ({
             {IconComponent}
             {image && <Image style={styles.image} source={image}></Image>}
             <View style={styles.detailsContainer}>
-              <AppText>{title}</AppText>
+              <AppText numberOfLines={1} style={styles.title}>
+                {title}
+              </AppText>
               {subTitle && (
-                <AppText style={styles.subTitle}>{subTitle}</AppText>
+                <AppText numberOfLines={2} style={styles.subTitle}>
+                  {subTitle}
+                </AppText>
               )}
             </View>
 
