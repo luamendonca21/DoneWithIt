@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Text } from "react-native";
+import { Text, Button } from "react-native";
 import Screen from "./app/components/Screen";
 import RegisterScreen from "./app/screens/RegisterScreen";
 import LoginScreen from "./app/screens/LoginScreen";
@@ -18,24 +18,35 @@ import { createStackNavigator } from "@react-navigation/stack";
 import defaultStyles from "./app/config/styles";
 import ImageInputList from "./app/components/ImageInputList";
 
-const Tweets = () => (
-  <Screen>
-    <Text>Tweets</Text>
-  </Screen>
-);
-const TweetDetails = () => (
-  <Screen>
-    <Text>Tweet Details</Text>
-  </Screen>
-);
+const Tweets = ({ navigation }) => {
+  return (
+    <Screen>
+      <Text>Tweets</Text>
+      <Button
+        title="View Teet"
+        onPress={() => navigation.navigate("TweetDetails")}
+      ></Button>
+    </Screen>
+  );
+};
+const TweetDetails = () => {
+  return (
+    <Screen>
+      <Text>Tweet Details</Text>
+    </Screen>
+  );
+};
 
 const Stack = createStackNavigator();
-const StackNavigator = () => (
-  <Stack.Navigator>
-    <Stack.Screen name="Tweets" component={Tweets} />
-    <Stack.Screen name="TweetDetails" component={TweetDetails} />
-  </Stack.Navigator>
-);
+
+const StackNavigator = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Tweets" component={Tweets} />
+      <Stack.Screen name="TweetDetails" component={TweetDetails} />
+    </Stack.Navigator>
+  );
+};
 export default function App() {
   return (
     <NavigationContainer>
