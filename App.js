@@ -14,59 +14,14 @@ import ImageInput from "./app/components/ImageInput";
 
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
+import AuthNavigator from "./app/navigation/AuthNavigator";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import defaultStyles from "./app/config/styles";
 import ImageInputList from "./app/components/ImageInputList";
-
-const Tweets = ({ navigation }) => {
-  return (
-    <Screen>
-      <Text>Tweets</Text>
-      <Button
-        title="View Teet"
-        onPress={() => navigation.navigate("TweetDetails", { id: 1 })}
-      ></Button>
-    </Screen>
-  );
-};
-const TweetDetails = ({ route }) => {
-  const { id } = route.params;
-  return (
-    <Screen>
-      <Text>Tweet Details {id}</Text>
-    </Screen>
-  );
-};
-
-const Account = () => {
-  return (
-    <Screen>
-      <Text>Account</Text>
-    </Screen>
-  );
-};
-const Stack = createStackNavigator();
-
-const StackNavigator = () => {
-  return (
-    <Stack.Navigator
-      screenOptions={{
-        headerStyle: { backgroundColor: "dodgerblue" },
-        headerTintColor: "white",
-      }}
-    >
-      <Stack.Screen name="Tweets" component={Tweets} />
-      <Stack.Screen
-        options={({ route }) => ({ title: `Tweet Details ${route.params.id}` })}
-        name="TweetDetails"
-        component={TweetDetails}
-      />
-    </Stack.Navigator>
-  );
-};
+import myTheme from "./app/navigation/navigationTheme";
 
 const Tab = createBottomTabNavigator();
+
 const TabNavigator = () => {
   return (
     <Tab.Navigator
@@ -84,7 +39,7 @@ const TabNavigator = () => {
           ),
         }}
         name="Feed"
-        component={Tweets}
+        component={StackNavigator}
       />
       <Tab.Screen name="Account" component={Account} />
     </Tab.Navigator>
@@ -92,8 +47,8 @@ const TabNavigator = () => {
 };
 export default function App() {
   return (
-    <NavigationContainer>
-      <TabNavigator />
+    <NavigationContainer theme={myTheme}>
+      <AuthNavigator />
     </NavigationContainer>
   );
 }

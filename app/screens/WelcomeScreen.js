@@ -4,7 +4,7 @@ import AppButton from "../components/AppButton";
 import defaultStyles from "../config/styles";
 import colors from "../config/colors";
 
-const WelcomeScreen = () => {
+const WelcomeScreen = ({ navigation }) => {
   const { primary, secondary } = colors;
   return (
     <ImageBackground
@@ -20,11 +20,14 @@ const WelcomeScreen = () => {
         <Text style={styles.tagline}>Sell What You Don't Need</Text>
       </View>
       <View style={styles.buttonsContainer}>
-        <AppButton title="Login" onPress={() => console.log("Tapped")} />
+        <AppButton
+          title="Login"
+          onPress={() => navigation.navigate("LoginScreen")}
+        />
         <AppButton
           title="Register"
           color="secondary"
-          onPress={() => console.log("Tapped")}
+          onPress={() => navigation.navigate("RegisterScreen")}
         />
       </View>
     </ImageBackground>
