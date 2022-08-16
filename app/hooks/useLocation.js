@@ -5,12 +5,16 @@ const useLocation = () => {
   const [location, setLocation] = useState();
 
   const getLocation = async () => {
-    const { granted } = await Location.requestForegroundPermissionsAsync();
-    if (!granted) return;
-    const {
-      coords: { latitude, longitude },
-    } = await Location.getCurrentPositionAsync({});
-    setLocation({ latitude, longitude });
+    try {
+      const { granted } = await Location.requestForegroundPermissionsAsync();
+      if (!granted) return;
+      const {
+        coords: { latitude, longitude },
+      } = await Location.getCurrentPositionAsync({});
+      setLocation({ latitude, longitude });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
