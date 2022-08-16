@@ -15,6 +15,7 @@ import ImageInput from "./app/components/ImageInput";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import defaultStyles from "./app/config/styles";
 import ImageInputList from "./app/components/ImageInputList";
 
@@ -38,6 +39,13 @@ const TweetDetails = ({ route }) => {
   );
 };
 
+const Account = () => {
+  return (
+    <Screen>
+      <Text>Account</Text>
+    </Screen>
+  );
+};
 const Stack = createStackNavigator();
 
 const StackNavigator = () => {
@@ -57,10 +65,35 @@ const StackNavigator = () => {
     </Stack.Navigator>
   );
 };
+
+const Tab = createBottomTabNavigator();
+const TabNavigator = () => {
+  return (
+    <Tab.Navigator
+      tabBarOptions={{
+        activeBackgroundColor: "tomato",
+        activeTintColor: "white",
+        inactiveBackgroundColor: "#eee",
+        inactiveTintColor: "black",
+      }}
+    >
+      <Tab.Screen
+        options={{
+          tabBarIcon: ({ size, color }) => (
+            <MaterialCommunityIcons size={size} color={color} name="home" />
+          ),
+        }}
+        name="Feed"
+        component={Tweets}
+      />
+      <Tab.Screen name="Account" component={Account} />
+    </Tab.Navigator>
+  );
+};
 export default function App() {
   return (
     <NavigationContainer>
-      <StackNavigator />
+      <TabNavigator />
     </NavigationContainer>
   );
 }
