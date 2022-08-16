@@ -44,7 +44,11 @@ const StackNavigator = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Tweets" component={Tweets} />
-      <Stack.Screen name="TweetDetails" component={TweetDetails} />
+      <Stack.Screen
+        options={({ route }) => ({ title: `Tweet Details ${route.params.id}` })}
+        name="TweetDetails"
+        component={TweetDetails}
+      />
     </Stack.Navigator>
   );
 };
