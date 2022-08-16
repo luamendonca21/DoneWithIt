@@ -14,7 +14,7 @@ import PickerItem from "./../components/PickerItem";
 import FormImagePicker from "../components/Forms/FormImagePicker";
 import * as Location from "expo-location";
 import * as Permissions from "expo-permissions";
-
+import useLocation from "../hooks/useLocation";
 const validateYupSchema = Yup.object().shape({
   images: Yup.array().min(1, "Please select at least one image"),
   title: Yup.string().required().min(1).label("Title"),
@@ -104,18 +104,7 @@ const categories = [
 ];
 
 const ListingEditScreen = () => {
-  const [location, setLocation] = useState();
-
-  useEffect(() => {
-    (async () => {
-      const { granted } = await Location.requestForegroundPermissionsAsync();
-      if (!granted) return;
-      const {
-        coords: { latitude, longitude },
-      } = await Location.getCurrentPositionAsync({});
-      setLocation({ latitude, longitude });
-    })();
-  }, []);
+  const location = useLocation();
 
   return (
     <Screen style={styles.container}>
