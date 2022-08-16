@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { Button, StyleSheet, Image } from "react-native";
 import * as ImagePicker from "expo-image-picker";
-import * as Permissions from "expo-permissions";
 import Screen from "./app/components/Screen";
 import RegisterScreen from "./app/screens/RegisterScreen";
 import LoginScreen from "./app/screens/LoginScreen";
@@ -12,16 +12,35 @@ import AccountScreen from "./app/screens/AccountScreen";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
 
 export default function App() {
+  const [imageUri, setImageUri] = useState();
   const requestPermission = async () => {
-    const { granted } = await Permissions.askAsync(
-      Permissions.CAMERA_ROLL,
-      Permissions.LOCATION
-    );
+    const { granted } = await ImagePicker.requestCameraPermissionsAsync();
     if (!granted) alert("You need to enable permission to acess the library");
+  };
+
+  const selectImage = async () => {
+    try {
+      const { uri, cancelled } = await ImagePicker.launchImageLibraryAsync();
+      if (!cancelled) setImageUri(uri);
+    } catch (error) {
+      console.log("error reading an image", error);
+    }
   };
   // equals to componentDidMount
   useEffect(() => {
     requestPermission();
   }, []);
-  return <Screen></Screen>;
+  return (
+    <Screen>
+      <Button title="Select image" onPress={selectImage}></Button>
+      <Image source={{ uri: imageUri }} style={styles.image}></Image>
+    </Screen>
+  );
 }
+
+const styles = StyleSheet.create({
+  image: {
+    width: "100%",
+    height: "50%",
+  },
+});
