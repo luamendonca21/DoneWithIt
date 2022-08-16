@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import * as ImagePicker from "expo-image-picker";
+import * as Permissions from "expo-permissions";
 import Screen from "./app/components/Screen";
 import RegisterScreen from "./app/screens/RegisterScreen";
 import LoginScreen from "./app/screens/LoginScreen";
@@ -12,7 +13,10 @@ import WelcomeScreen from "./app/screens/WelcomeScreen";
 
 export default function App() {
   const requestPermission = async () => {
-    const { granted } = await ImagePicker.requestCameraPermissionsAsync();
+    const { granted } = await Permissions.askAsync(
+      Permissions.CAMERA_ROLL,
+      Permissions.LOCATION
+    );
     if (!granted) alert("You need to enable permission to acess the library");
   };
   // equals to componentDidMount
