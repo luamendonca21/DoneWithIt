@@ -15,15 +15,26 @@ import ImageInput from "./app/components/ImageInput";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import defaultStyles from "./app/config/styles";
+import ImageInputList from "./app/components/ImageInputList";
 
 export default function App() {
-  const [imageUri, setImageUri] = useState();
+  const [imageUris, setImageUris] = useState([]);
+
+  const handleRemove = (uri) => {
+    const arrayUris = imageUris.filter((u) => u !== uri);
+    setImageUris(arrayUris);
+  };
+
+  const handleAdd = (uri) => {
+    setImageUris([...imageUris, uri]);
+  };
 
   return (
     <Screen>
-      <ImageInput
-        onChangeImage={(uri) => setImageUri(uri)}
-        imageUri={imageUri}
+      <ImageInputList
+        imageUris={imageUris}
+        onRemoveImage={handleRemove}
+        onAddImage={handleAdd}
       />
     </Screen>
   );
