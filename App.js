@@ -18,24 +18,5 @@ import defaultStyles from "./app/config/styles";
 import ImageInputList from "./app/components/ImageInputList";
 
 export default function App() {
-  const [imageUris, setImageUris] = useState([]);
-
-  const handleRemove = (uri) => {
-    const arrayUris = imageUris.filter((u) => u !== uri);
-    setImageUris(arrayUris);
-  };
-
-  const handleAdd = (uri) => {
-    setImageUris([...imageUris, uri]);
-  };
-
-  return (
-    <Screen>
-      <ImageInputList
-        imageUris={imageUris}
-        onRemoveImage={handleRemove}
-        onAddImage={handleAdd}
-      />
-    </Screen>
-  );
+  return <ListingEditScreen />;
 }
