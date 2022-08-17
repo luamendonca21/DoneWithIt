@@ -6,7 +6,7 @@ import Icon from "../components/Icon";
 
 import defaultStyles from "../config/styles";
 
-const AccountScreen = () => {
+const AccountScreen = ({ navigation }) => {
   const menuItems = [
     {
       title: "My Listings",
@@ -25,6 +25,7 @@ const AccountScreen = () => {
         size: 35,
         backgroundColor: defaultStyles.colors.secondary,
       },
+      targetScreen: "Messages",
     },
   ];
 
@@ -40,6 +41,7 @@ const AccountScreen = () => {
             backgroundColor={item.icon.backgroundColor}
           />
         }
+        onPress={() => navigation.navigate(item.targetScreen)}
       />
     );
   };
@@ -82,7 +84,6 @@ const styles = StyleSheet.create({
     backgroundColor: defaultStyles.colors.light,
   },
   userContainer: {
-    marginTop: 10,
     backgroundColor: defaultStyles.colors.white,
   },
   myListingsContainer: {

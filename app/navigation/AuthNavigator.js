@@ -1,12 +1,10 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import { CardStyleInterpolators } from "@react-navigation/stack";
 
 import WelcomeScreen from "../screens/WelcomeScreen";
 import RegisterScreen from "../screens/RegisterScreen";
 import LoginScreen from "../screens/LoginScreen";
 
-import defaultStyles from "../config/styles";
 const Stack = createStackNavigator();
 
 const AuthNavigator = () => {

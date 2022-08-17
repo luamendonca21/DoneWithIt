@@ -6,14 +6,15 @@ import Screen from "../components/Screen";
 import defaultStyles from "../config/styles";
 import { ListItem } from "../components/Lists";
 
-const ListingDetailsScreen = () => {
+const ListingDetailsScreen = ({ route }) => {
+  const listing = route.params;
   return (
     <Screen>
       <View style={styles.listingContainer}>
-        <Image style={styles.image} source={require("../assets/jacket.jpg")} />
+        <Image style={styles.image} source={listing.image} />
         <View style={styles.detailsContainer}>
-          <AppText style={styles.title}> Red jacket for sale</AppText>
-          <AppText style={styles.price}> 100€</AppText>
+          <AppText style={styles.title}>{listing.title}</AppText>
+          <AppText style={styles.price}> {listing.price} €</AppText>
           <View style={styles.container}>
             <ListItem
               title="Luana Mendonça"

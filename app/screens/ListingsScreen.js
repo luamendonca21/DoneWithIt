@@ -3,7 +3,7 @@ import { View, StyleSheet, FlatList } from "react-native";
 import Screen from "../components/Screen";
 import Card from "../components/Card";
 import defaultStyles from "../config/styles";
-const ListingsScreen = () => {
+const ListingsScreen = ({ navigation }) => {
   const listings = [
     {
       id: 1,
@@ -14,7 +14,7 @@ const ListingsScreen = () => {
     {
       id: 2,
       title: "Couch in great condition",
-      price: 100,
+      price: 150,
       image: require("../assets/couch.jpg"),
     },
   ];
@@ -22,6 +22,7 @@ const ListingsScreen = () => {
   const renderItem = ({ item }) => {
     return (
       <Card
+        onPress={() => navigation.navigate("ListingDetails", item)}
         title={item.title}
         subTitle={item.price + " €"}
         image={item.image}
