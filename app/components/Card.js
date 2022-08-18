@@ -8,11 +8,11 @@ import {
 import defaultStyles from "../config/styles";
 import AppText from "./AppText";
 
-const Card = ({ title, subTitle, image, onPress }) => {
+const Card = ({ title, subTitle, imageUrl, onPress }) => {
   return (
     <TouchableWithoutFeedback onPress={onPress}>
       <View style={styles.cardContainer}>
-        <Image style={styles.image} source={image} />
+        <Image style={styles.image} source={{ uri: imageUrl }} />
         <View style={styles.detailsContainer}>
           <AppText numberOfLines={1}>{title}</AppText>
           <AppText style={styles.subtitle}>{subTitle}</AppText>

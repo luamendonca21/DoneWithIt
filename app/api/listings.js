@@ -1,6 +1,6 @@
 import client from "./client";
 
-const endpoint = "/lstings";
+const endpoint = "/listings";
 const getListings = () => client.get(endpoint);
 
 export default {
