@@ -3,11 +3,13 @@ import { useFormikContext } from "formik";
 import ImageInputList from "../ImageInputList";
 import ErrorMessage from "./ErrorMessage";
 const FormImagePicker = ({ name }) => {
-  const { values, errors, touched, setFieldValue } = useFormikContext();
+  const { errors, setFieldValue, touched, values } = useFormikContext();
 
   const handleRemove = (uri) => {
-    const arrayUris = values[name].filter((u) => u !== uri);
-    setFieldValue(name, arrayUris);
+    setFieldValue(
+      name,
+      values[name].filter((u) => u !== uri)
+    );
   };
 
   const handleAdd = (uri) => {
