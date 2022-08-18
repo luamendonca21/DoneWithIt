@@ -16,6 +16,7 @@ const AccountScreen = ({ navigation }) => {
         size: 35,
         backgroundColor: defaultStyles.colors.primary,
       },
+      targetScreen: "Feed",
     },
     {
       title: "My Messages",
