@@ -1,5 +1,8 @@
 import React from "react";
-import { createStackNavigator } from "@react-navigation/stack";
+import {
+  createStackNavigator,
+  CardStyleInterpolators,
+} from "@react-navigation/stack";
 
 import WelcomeScreen from "../screens/WelcomeScreen";
 import RegisterScreen from "../screens/RegisterScreen";
@@ -9,7 +12,11 @@ const Stack = createStackNavigator();
 
 const AuthNavigator = () => {
   return (
-    <Stack.Navigator screenOptions={{}}>
+    <Stack.Navigator
+      screenOptions={{
+        cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+      }}
+    >
       <Stack.Screen
         options={{ headerShown: false }}
         name="WelcomeScreen"
