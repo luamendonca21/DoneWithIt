@@ -14,6 +14,7 @@ import FormImagePicker from "../components/Forms/FormImagePicker";
 
 import listingsApi from "../api/listings";
 import useLocation from "../hooks/useLocation";
+import UploadScreen from "../components/UploadScreen";
 
 const validateYupSchema = Yup.object().shape({
   images: Yup.array().min(1, "Please select at least one image"),
@@ -105,16 +106,23 @@ const categories = [
 
 const ListingEditScreen = () => {
   const location = useLocation();
+  const [uploadVisible, setUploadVisible] = useState(false);
+  const [progress, setProgress] = useState(0);
 
   const handleSubmit = async (listing) => {
-    console.log(listing);
-    const result = await listingsApi.addListing({ ...listing, location });
-    console.log(result);
+    setUploadVisible(true);
+    const result = await listingsApi.addListing(
+      { ...listing, location },
+      (progress) => setProgress(progress)
+    );
+    setUploadVisible(false);
+
     if (!result.ok) return alert("Could not save the listing");
     alert("Success");
   };
   return (
     <Screen style={styles.container}>
+      <UploadScreen progress={progress} visible={uploadVisible} />
       <AppForm
         initialValues={{
           images: [],
