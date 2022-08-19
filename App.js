@@ -22,12 +22,21 @@ import myTheme from "./app/navigation/navigationTheme";
 import AppNavigator from "./app/navigation/AppNavigator";
 
 import NetInfo, { useNetInfo } from "@react-native-community/netinfo";
-import AppText from "./app/components/AppText";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function App() {
-  // const netInfo = useNetInfo();
-  // return netInfo.isInternetReachable? <AppText>No internet connection</AppText> : <View>listings</View>;
-  // return <Button disabled={!netInfo.isInternetReachable}/>
+  const demo = async () => {
+    try {
+      await AsyncStorage.setItem("person", JSON.stringify({ id: 1 }));
+      const value = await AsyncStorage.getItem("person");
+      const person = JSON.parse(value);
+      console.log(person);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  demo();
   return (
     <NavigationContainer theme={myTheme}>
       <AppNavigator />
