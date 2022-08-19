@@ -21,17 +21,13 @@ import ImageInputList from "./app/components/ImageInputList";
 import myTheme from "./app/navigation/navigationTheme";
 import AppNavigator from "./app/navigation/AppNavigator";
 
-import NetInfo from "@react-native-community/netinfo";
+import NetInfo, { useNetInfo } from "@react-native-community/netinfo";
+import AppText from "./app/components/AppText";
 
 export default function App() {
-  // componentDidMount
-  const unsubscribe = NetInfo.addEventListener((netInfo) =>
-    console.log(netInfo)
-  );
-
-  //componentWillMount
-  unsubscribe();
-
+  // const netInfo = useNetInfo();
+  // return netInfo.isInternetReachable? <AppText>No internet connection</AppText> : <View>listings</View>;
+  // return <Button disabled={!netInfo.isInternetReachable}/>
   return (
     <NavigationContainer theme={myTheme}>
       <AppNavigator />
