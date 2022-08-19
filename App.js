@@ -21,31 +21,6 @@ import ImageInputList from "./app/components/ImageInputList";
 import myTheme from "./app/navigation/navigationTheme";
 import AppNavigator from "./app/navigation/AppNavigator";
 
-const Tab = createBottomTabNavigator();
-
-const TabNavigator = () => {
-  return (
-    <Tab.Navigator
-      tabBarOptions={{
-        activeBackgroundColor: "tomato",
-        activeTintColor: "white",
-        inactiveBackgroundColor: "#eee",
-        inactiveTintColor: "black",
-      }}
-    >
-      <Tab.Screen
-        options={{
-          tabBarIcon: ({ size, color }) => (
-            <MaterialCommunityIcons size={size} color={color} name="home" />
-          ),
-        }}
-        name="Feed"
-        component={StackNavigator}
-      />
-      <Tab.Screen name="Account" component={Account} />
-    </Tab.Navigator>
-  );
-};
 export default function App() {
   return (
     <NavigationContainer theme={myTheme}>
