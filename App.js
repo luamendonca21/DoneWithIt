@@ -28,3 +28,9 @@ export default function App() {
     </NavigationContainer>
   );
 }
+
+// OFFINE SUPPORT
+
+// Notify the user and disable some features
+// Cache data so it is available when the device is offline
+// Store user actions (that envolve modifying data) while the app is offline to execute them later when device goes online
