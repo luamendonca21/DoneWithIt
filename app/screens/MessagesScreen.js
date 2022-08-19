@@ -48,25 +48,23 @@ const MessagesScreen = () => {
   };
 
   return (
-    <Screen>
-      <FlatList
-        ItemSeparatorComponent={ListItemSeparator}
-        data={messages}
-        keyExtractor={(message) => message.id.toString()}
-        renderItem={renderItem}
-        refreshing={refreshing}
-        onRefresh={() =>
-          setMessages([
-            {
-              id: 2,
-              title: "T2",
-              description: "D2",
-              image: require("../assets/luana.jpg"),
-            },
-          ])
-        }
-      />
-    </Screen>
+    <FlatList
+      ItemSeparatorComponent={ListItemSeparator}
+      data={messages}
+      keyExtractor={(message) => message.id.toString()}
+      renderItem={renderItem}
+      refreshing={refreshing}
+      onRefresh={() =>
+        setMessages([
+          {
+            id: 2,
+            title: "T2",
+            description: "D2",
+            image: require("../assets/luana.jpg"),
+          },
+        ])
+      }
+    />
   );
 };
 
