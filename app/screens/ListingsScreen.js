@@ -11,6 +11,8 @@ import ActivityIndicator from "../components/ActivityIndicator";
 import useApi from "../hooks/useApi";
 
 const ListingsScreen = ({ navigation }) => {
+  const [refreshing, setRefreshing] = useState(false);
+
   const {
     data: listings,
     error,
@@ -42,6 +44,8 @@ const ListingsScreen = ({ navigation }) => {
       )}
       <ActivityIndicator visible={loading} />
       <FlatList
+        onRefresh={loadListings}
+        refreshing={refreshing}
         data={listings}
         keyExtractor={(listing) => listing.id.toString()}
         renderItem={renderItem}
