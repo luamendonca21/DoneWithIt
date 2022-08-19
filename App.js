@@ -24,8 +24,14 @@ import AppNavigator from "./app/navigation/AppNavigator";
 import NetInfo from "@react-native-community/netinfo";
 
 export default function App() {
-  // check if user have internet connection (only once)
-  NetInfo.fetch().then((netInfo) => console.log(netInfo));
+  // componentDidMount
+  const unsubscribe = NetInfo.addEventListener((netInfo) =>
+    console.log(netInfo)
+  );
+
+  //componentWillMount
+  unsubscribe();
+
   return (
     <NavigationContainer theme={myTheme}>
       <AppNavigator />
