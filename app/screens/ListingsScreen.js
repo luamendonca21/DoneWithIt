@@ -33,22 +33,20 @@ const ListingsScreen = ({ navigation }) => {
     );
   };
   return (
-    <Screen style={styles.screen}>
-      <View style={styles.container}>
-        {error && (
-          <>
-            <AppText>Couldn't retrieve the listings.</AppText>
-            <AppButton title="Retry" onPress={loadListings}></AppButton>
-          </>
-        )}
-        <ActivityIndicator visible={loading} />
-        <FlatList
-          data={listings}
-          keyExtractor={(listing) => listing.id.toString()}
-          renderItem={renderItem}
-        />
-      </View>
-    </Screen>
+    <View style={styles.container}>
+      {error && (
+        <>
+          <AppText>Couldn't retrieve the listings.</AppText>
+          <AppButton title="Retry" onPress={loadListings}></AppButton>
+        </>
+      )}
+      <ActivityIndicator visible={loading} />
+      <FlatList
+        data={listings}
+        keyExtractor={(listing) => listing.id.toString()}
+        renderItem={renderItem}
+      />
+    </View>
   );
 };
 

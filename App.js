@@ -20,32 +20,14 @@ import defaultStyles from "./app/config/styles";
 import ImageInputList from "./app/components/ImageInputList";
 import myTheme from "./app/navigation/navigationTheme";
 import AppNavigator from "./app/navigation/AppNavigator";
-
-import NetInfo, { useNetInfo } from "@react-native-community/netinfo";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-
+import OfflineNotice from "./app/components/OfflineNotice";
 export default function App() {
-  const demo = async () => {
-    try {
-      await AsyncStorage.setItem("person", JSON.stringify({ id: 1 }));
-      const value = await AsyncStorage.getItem("person");
-      const person = JSON.parse(value);
-      console.log(person);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  demo();
   return (
-    <NavigationContainer theme={myTheme}>
-      <AppNavigator />
-    </NavigationContainer>
+    <>
+      <OfflineNotice />
+      <NavigationContainer theme={myTheme}>
+        <AppNavigator />
+      </NavigationContainer>
+    </>
   );
 }
-
-// OFFINE SUPPORT
-
-// Notify the user and disable some features
-// Cache data so it is available when the device is offline
-// Store user actions (that envolve modifying data) while the app is offline to execute them later when device goes online
