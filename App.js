@@ -21,7 +21,11 @@ import ImageInputList from "./app/components/ImageInputList";
 import myTheme from "./app/navigation/navigationTheme";
 import AppNavigator from "./app/navigation/AppNavigator";
 
+import NetInfo from "@react-native-community/netinfo";
+
 export default function App() {
+  // check if user have internet connection (only once)
+  NetInfo.fetch().then((netInfo) => console.log(netInfo));
   return (
     <NavigationContainer theme={myTheme}>
       <AppNavigator />
