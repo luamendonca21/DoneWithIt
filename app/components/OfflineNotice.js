@@ -25,9 +25,10 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 50,
     zIndex: 1,
-    marginTop: Constants.statusBarHeight,
+    top: Constants.statusBarHeight,
     alignItems: "center",
     justifyContent: "center",
+    elevation: 1,
   },
   text: {
     color: defaultStyles.colors.white,
