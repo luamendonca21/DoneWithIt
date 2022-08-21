@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { View, StyleSheet, FlatList } from "react-native";
 import Screen from "../components/Screen";
 import { ListItem, ListItemSeparator } from "../components/Lists";
 import Icon from "../components/Icon";
 
+import AuthContext from "../auth/context";
 import defaultStyles from "../config/styles";
 
 const AccountScreen = ({ navigation }) => {
+  const { user } = useContext(AuthContext);
+
   const menuItems = [
     {
       title: "My Listings",
@@ -33,6 +36,7 @@ const AccountScreen = ({ navigation }) => {
   const renderItem = ({ item }) => {
     return (
       <ListItem
+        showChevrons={true}
         title={item.title}
         IconComponent={
           <Icon
@@ -50,8 +54,9 @@ const AccountScreen = ({ navigation }) => {
     <Screen style={styles.screen}>
       <View style={styles.userContainer}>
         <ListItem
-          title="Luana Mendonça"
-          subTitle="luamendonca_2000@hotmail.com"
+          showChevrons={true}
+          title={user.name}
+          subTitle={user.email}
           image={require("../assets/luana.jpg")}
         />
       </View>
@@ -64,6 +69,7 @@ const AccountScreen = ({ navigation }) => {
         />
       </View>
       <ListItem
+        showChevrons={true}
         title="Log Out"
         IconComponent={
           <Icon
