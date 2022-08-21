@@ -8,7 +8,7 @@ import AuthContext from "../auth/context";
 import defaultStyles from "../config/styles";
 
 const AccountScreen = ({ navigation }) => {
-  const { user } = useContext(AuthContext);
+  const { user, setUser } = useContext(AuthContext);
 
   const menuItems = [
     {
@@ -71,6 +71,7 @@ const AccountScreen = ({ navigation }) => {
       <ListItem
         showChevrons={true}
         title="Log Out"
+        onPress={() => setUser(null)}
         IconComponent={
           <Icon
             name="logout"
