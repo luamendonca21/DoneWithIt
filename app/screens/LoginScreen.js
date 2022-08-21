@@ -10,6 +10,7 @@ import {
 } from "../components/Forms";
 
 import * as Yup from "yup";
+import jwtDecode from "jwt-decode";
 
 import authApi from "../api/auth";
 
@@ -25,7 +26,8 @@ const LoginScreen = () => {
     const result = await authApi.login(email, password);
     if (!result.ok) return setLoginFailed(true);
     setLoginFailed(false);
-    console.log(result.data);
+    const user = jwtDecode(result.data);
+    console.log(user);
   };
   return (
     <Screen style={styles.container}>
