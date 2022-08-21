@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Text, Button } from "react-native";
 import Screen from "./app/components/Screen";
 import RegisterScreen from "./app/screens/RegisterScreen";
@@ -22,8 +22,29 @@ import myTheme from "./app/navigation/navigationTheme";
 import AppNavigator from "./app/navigation/AppNavigator";
 import OfflineNotice from "./app/components/OfflineNotice";
 import AuthContext from "./app/auth/context";
+import authStorage from "./app/auth/storage";
+import jwtDecode from "jwt-decode";
+import AppLoading from "expo-app-loading";
 export default function App() {
   const [user, setUser] = useState();
+  const [isReady, setIsReady] = useState(false);
+
+  const restoreToken = async () => {
+    const token = await authStorage.getToken();
+    if (!token) return;
+    const user = jwtDecode(token);
+    setUser(user);
+  };
+
+  if (!isReady)
+    return (
+      <AppLoading
+        startAsync={restoreToken}
+        onFinish={() => setIsReady(true)}
+        onError={console.warn}
+      />
+    );
+
   return (
     <AuthContext.Provider value={{ user, setUser }}>
       <OfflineNotice />
