@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Screen from "../components/Screen";
-import { StyleSheet } from "react-native";
+import { StyleSheet, View } from "react-native";
 import {
   AppFormField,
   SubmitButton,
@@ -43,32 +43,34 @@ const RegisterScreen = () => {
     logIn(authToken);
   };
   return (
-    <Screen style={styles.container}>
+    <>
       <ActivityIndicator visible={registerApi.loading || loginApi.loading} />
-      <AppForm
-        initialValues={{ name: "", email: "", password: "" }}
-        validationSchema={validateYupSchema}
-        onSubmit={handleSubmit}
-      >
-        <ErrorMessage error={error} visible={error} />
-        <AppFormField name="name" icon="account-circle" placeholder="Name" />
-        <AppFormField
-          autoCapitalize="none"
-          autoCorrect={false}
-          name="email"
-          icon="email"
-          placeholder="Email"
-          keyboardType="email-address"
-        />
-        <AppFormField
-          name="password"
-          icon="lock"
-          placeholder="Password"
-          secureTextEntry={true}
-        />
-        <SubmitButton title="Register" />
-      </AppForm>
-    </Screen>
+      <View style={styles.container}>
+        <AppForm
+          initialValues={{ name: "", email: "", password: "" }}
+          validationSchema={validateYupSchema}
+          onSubmit={handleSubmit}
+        >
+          <ErrorMessage error={error} visible={error} />
+          <AppFormField name="name" icon="account-circle" placeholder="Name" />
+          <AppFormField
+            autoCapitalize="none"
+            autoCorrect={false}
+            name="email"
+            icon="email"
+            placeholder="Email"
+            keyboardType="email-address"
+          />
+          <AppFormField
+            name="password"
+            icon="lock"
+            placeholder="Password"
+            secureTextEntry={true}
+          />
+          <SubmitButton title="Register" />
+        </AppForm>
+      </View>
+    </>
   );
 };
 

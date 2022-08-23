@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, Image } from "react-native";
+import { StyleSheet, Image, View } from "react-native";
 
 import Screen from "../components/Screen";
 import {
@@ -30,7 +30,7 @@ const LoginScreen = () => {
     logIn(result.data);
   };
   return (
-    <Screen style={styles.container}>
+    <View style={styles.container}>
       <Image style={styles.image} source={require("../assets/logo-red.png")} />
       <AppForm
         initialValues={{ email: "", password: "" }}
@@ -58,7 +58,7 @@ const LoginScreen = () => {
 
         <SubmitButton title="Login" />
       </AppForm>
-    </Screen>
+    </View>
   );
 };
 
