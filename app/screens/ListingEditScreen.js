@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Screen from "../components/Screen";
 import { StyleSheet } from "react-native";
+import AppTextInput from "../components/AppTextInput";
 import {
   AppFormField,
   SubmitButton,

@@ -1,11 +1,11 @@
 import React from "react";
-
 import { View, StyleSheet } from "react-native";
 import AppText from "../components/AppText";
 import Screen from "../components/Screen";
 import defaultStyles from "../config/styles";
 import { ListItem } from "../components/Lists";
 import { Image } from "react-native-expo-image-cache";
+import ContactSellerForm from "../components/Forms/ContactSellerForm";
 
 const ListingDetailsScreen = ({ route }) => {
   const listing = route.params;
@@ -24,6 +24,7 @@ const ListingDetailsScreen = ({ route }) => {
             />
           </View>
         </View>
+        <ContactSellerForm listing={listing} />
       </View>
     </Screen>
   );
