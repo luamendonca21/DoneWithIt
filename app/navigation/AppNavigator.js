@@ -9,7 +9,7 @@ import FeedNavigator from "./FeedNavigator";
 import AccountNavigator from "./AccountNavigator";
 import NewListingButton from "./NewListingButton";
 import routes from "../navigation/routes";
-
+import expoPushTokensApi from "../api/expoPushTokens";
 const Tab = createBottomTabNavigator();
 
 const AppNavigator = () => {
@@ -22,8 +22,8 @@ const AppNavigator = () => {
       const permission = await Permissions.askAsync(Permissions.NOTIFICATIONS);
       if (!permission.granted) return;
 
-      const token = await Notifications.getExpoPushTokenAsync();
-      console.log(token);
+      const { data: token } = await Notifications.getExpoPushTokenAsync();
+      expoPushTokensApi.registerPushToken(token);
     } catch (error) {
       console.log("Error getting a push token", error);
     }
